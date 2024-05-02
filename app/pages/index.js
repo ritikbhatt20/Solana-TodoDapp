@@ -11,7 +11,7 @@ const DynamicWalletMultiButton = dynamic(
 );
 
 const Home = () => {
-    const { initialized, initializeStaticUser, loading, transactionPending, completedTodos, incompleteTodos, addTodo, markTodo, removeTodo, markStaticTodo, removeStaticTodo, addStaticTodo, input, handleChange } = useTodo()
+    const { initialized, initializeStaticUser, loading, transactionPending, completedTodos, incompleteTodos, addTodo, markTodo, removeTodo, markStaticTodo, removeStaticTodo, addStaticTodo, input, handleChange, initializeUser } = useTodo()
 
     const [isClient, setIsClient] = useState(false);
 
@@ -33,7 +33,7 @@ const Home = () => {
                         <div className={styles.iconContainer}></div>
                     </div>
                 ) : (
-                    <button type="button" className={styles.button} onClick={() => initializeStaticUser()} disabled={transactionPending}>
+                    <button type="button" className={styles.button} onClick={() => initializeUser()} disabled={transactionPending}>
                         Initialize
                     </button>
                 )}
