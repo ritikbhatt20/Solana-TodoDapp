@@ -14,7 +14,7 @@ const TodoItem = ({ idx, content, marked, dateline, publicKey, action }) => {
         // Only allow checked todo to be removed
         if(!marked) return
 
-        action(idx)
+        action(publicKey, idx)
 
     }
 

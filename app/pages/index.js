@@ -11,7 +11,7 @@ const DynamicWalletMultiButton = dynamic(
 );
 
 const Home = () => {
-    const { initialized, initializeStaticUser, loading, transactionPending, completedTodos, incompleteTodos, removeTodo, markStaticTodo, removeStaticTodo, addStaticTodo, input, handleChange, initializeUser, addTodo, markTodo } = useTodo()
+    const { initialized, initializeStaticUser, loading, transactionPending, completedTodos, incompleteTodos, markStaticTodo, removeStaticTodo, addStaticTodo, input, handleChange, initializeUser, addTodo, markTodo, removeTodo } = useTodo()
 
     const [isClient, setIsClient] = useState(false);
     useEffect(() => {
@@ -42,7 +42,7 @@ const Home = () => {
             <div className={styles.mainContainer}>
                 <Loading loading={loading}>
                     <TodoSection title="Tasks" todos={incompleteTodos} action={markTodo} />
-                    <TodoSection title="Completed" todos={completedTodos} action={removeStaticTodo} />
+                    <TodoSection title="Completed" todos={completedTodos} action={removeTodo} />
                 </Loading>
             </div>
         </div>
