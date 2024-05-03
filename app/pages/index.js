@@ -11,10 +11,9 @@ const DynamicWalletMultiButton = dynamic(
 );
 
 const Home = () => {
-    const { initialized, initializeStaticUser, loading, transactionPending, completedTodos, incompleteTodos, addTodo, markTodo, removeTodo, markStaticTodo, removeStaticTodo, addStaticTodo, input, handleChange, initializeUser } = useTodo()
+    const { initialized, initializeStaticUser, loading, transactionPending, completedTodos, incompleteTodos, removeTodo, markStaticTodo, removeStaticTodo, addStaticTodo, input, handleChange, initializeUser, addTodo, markTodo } = useTodo()
 
     const [isClient, setIsClient] = useState(false);
-
     useEffect(() => {
         setIsClient(true); // Set isClient to true when component mounts on the client-side
     }, []);
@@ -26,7 +25,7 @@ const Home = () => {
                     <div className={styles.todoInput}>
                         <div className={`${styles.todoCheckbox} ${styles.checked}`} />
                         <div className={styles.inputContainer}>
-                            <form onSubmit={addStaticTodo}>
+                            <form onSubmit={addTodo}>
                                 <input value={input} onChange={handleChange} id={styles.inputField} type="text" placeholder='Create a new todo...' />
                             </form>
                         </div>
@@ -42,7 +41,7 @@ const Home = () => {
 
             <div className={styles.mainContainer}>
                 <Loading loading={loading}>
-                    <TodoSection title="Tasks" todos={incompleteTodos} action={markStaticTodo} />
+                    <TodoSection title="Tasks" todos={incompleteTodos} action={markTodo} />
                     <TodoSection title="Completed" todos={completedTodos} action={removeStaticTodo} />
                 </Loading>
             </div>
